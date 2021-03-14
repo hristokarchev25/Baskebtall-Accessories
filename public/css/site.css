@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    background: bisque;
 }
 
 header ul {
@@ -32,7 +33,7 @@ header {
     list-style-type: none;
     margin: auto;
     padding: 0;
-    background-color: #607588;
+    background-color: darkcyan;
 }
 
 header ul li {
@@ -43,7 +44,7 @@ header ul li {
 header ul li a {
     text-decoration: none;
     text-transform: uppercase;
-    color: white;
+    color: bisque;
     font-weight: bold;
     margin: 0 1em;
 }
@@ -186,7 +187,7 @@ input.search {
 }
 
 input[type=submit] {
-    background-color: #545775;
+    background-color: darkcyan;
     border: none;
     padding: 8px;
     text-align: center;
@@ -195,13 +196,13 @@ input[type=submit] {
     font-size: 18px;
     width: 50%;
     margin: 5px 5px 5px 25%;
-    color: white;
+    color: bisque;
     text-transform: uppercase;
     border-radius: 4px;
 }
 
 input[type=submit]:hover {
-    background-color: #718F94;
+    background-color: darkred;
     cursor: pointer;
 }
 
@@ -252,10 +253,10 @@ h2{
 }
 
 footer {
-    background: #607588;
+    background: darkcyan;
     padding: 1em;
     text-align: center;
-    color: white;
+    color: bisque;
     font-size: 20px;
 }
 
