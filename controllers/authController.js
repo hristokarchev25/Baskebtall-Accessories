@@ -3,9 +3,23 @@ const router = Router();
 const authService = require('../services/authService');
 const { COOKIE_NAME } = require('../config/config');
 
-//login
+//login get & post
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Login-Page' });
+});
+
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        let token = await authService.login({ username, password });
+
+        res.cookie(COOKIE_NAME, token);
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.render('login', { error });
+    }
 });
 
 //registration get & post
