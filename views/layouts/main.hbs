@@ -12,6 +12,11 @@
 <body>
     <div class="container">
         <header>
+            {{#if error}}
+            <div id="notifications">
+                <p id="notification-message">{{error.message}}</p>
+            </div>
+            {{/if}}
             <ul>
                 <li><img class="logo" src="/images/logoIco.jpg"></li>
                 {{!-- <li><a href="/products">Browse</a></li> --}}
@@ -23,11 +28,11 @@
         {{{body}}}
     </div>
     <footer>
-        <hr/>
+        <hr />
         <p>
             &copy; 2021 KARCHEV INC. | All right reserved | Terms of service
         </p>
-        <hr/>
+        <hr />
     </footer>
 
 </body>
