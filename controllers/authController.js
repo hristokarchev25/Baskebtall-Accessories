@@ -3,12 +3,16 @@ const router = Router();
 const authService = require('../services/authService');
 const { COOKIE_NAME } = require('../config/config');
 
+const isAuthenticated = require('../middlewares/isAuthenticated');
+const isGuest = require('../middlewares/isGuest');
+
+
 //login get & post
-router.get('/login', (req, res) => {
+router.get('/login', isGuest, (req, res) => {
     res.render('login', { title: 'Login-Page' });
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', isGuest, async (req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -23,12 +27,13 @@ router.post('/login', async (req, res) => {
 });
 
 //registration get & post
-router.get('/register', (req, res) => {
+router.get('/register', isGuest, (req, res) => {
     res.render('register', { title: 'Register-Page' });
 });
 
 router.post(
     '/register',
+    isGuest,
     async (req, res) => {
         const { username, password, repeatPassword } = req.body;
 
@@ -45,4 +50,9 @@ router.post(
         }
     });
 
+//logout
+router.get('/logout', isAuthenticated, (req, res) => {
+    res.clearCookie(COOKIE_NAME);
+    res.redirect('/teams');
+});
 module.exports = router;
