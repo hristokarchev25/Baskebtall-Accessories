@@ -25,5 +25,12 @@ router.post('/create', isAuthenticated, (req, res, next) => {
         .catch(next);
 });
 
+//details
+router.get('/details/:teamId', async (req, res) => {
+    let team = await teamService.getOneWithPlayers(req.params.teamId);
+
+    res.render('details', { title: 'Details-Product-Page', team });
+});
+
 
 module.exports = router;

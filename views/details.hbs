@@ -1,0 +1,13 @@
+<main>
+  <h1>{{team.name}}</h1>
+  <img class="cube" src="{{team.imageUrl}}">
+  <div class="details">
+    <p><span>Description:</span>{{team.description}}</p>
+    <a class="btn" href="/teams">Back</a>
+    {{#if isAuthenticated }}
+    <a class="btn" href="/teams/{{product._id}}/attach">Attach</a>
+    <a class="btn" href="/teams/{{product._id}}/edit">Edit</a>
+    <a class="btn" href="/teams/{{product._id}}/delete">Delete</a>
+    {{/if}}
+  </div>
+</main>

@@ -28,8 +28,14 @@ function create(data, userId) {
     return team.save();
 };
 
-
+function getOneWithPlayers(id) {
+    return Team
+        .findById(id)
+        .populate('players')
+        .lean();
+};
 module.exports = {
     getAll,
-    create
+    create,
+    getOneWithPlayers,
 }
