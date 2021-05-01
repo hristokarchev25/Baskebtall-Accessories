@@ -1,0 +1,14 @@
+<main>
+  <h1>Edit Team</h1>
+  <div class="form">
+    <form action="/teams/{{_id}}/edit" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="{{name}}">
+      <label for="name">Description</label>
+      <textarea id="name" name="description">{{description}}</textarea>
+      <label for="image">ImageUrl</label>
+      <input type="text" id="image" name="imageUrl" value="{{imageUrl}}">
+      <input type="submit" value="Edit">
+    </form>
+  </div>
+</main>

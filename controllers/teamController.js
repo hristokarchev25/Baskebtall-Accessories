@@ -32,5 +32,23 @@ router.get('/details/:teamId', async (req, res) => {
     res.render('details', { title: 'Details-Product-Page', team });
 });
 
+//edit
+router.get('/:teamId/edit', isAuthenticated, (req, res) => {
+    teamService.getOne(req.params.teamId)
+        .then(team => {
+            res.render('edit', team);
+        });
+});
+
+router.post('/:teamId/edit', isAuthenticated, (req, res) => {
+    teamService.updateOne(req.params.teamId, req.body)
+        .then(response => {
+            res.redirect(`/teams/details/${req.params.teamId}`);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
+
 
 module.exports = router;

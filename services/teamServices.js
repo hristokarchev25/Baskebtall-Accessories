@@ -34,8 +34,20 @@ function getOneWithPlayers(id) {
         .populate('players')
         .lean();
 };
+
+function getOne(id) {
+    return Team.findById(id).lean();
+
+};
+
+function updateOne(teamId, teamData) {
+    return Team.updateOne({ _id: teamId }, teamData);
+};
+
 module.exports = {
     getAll,
     create,
     getOneWithPlayers,
+    getOne,
+    updateOne,
 }
