@@ -1,8 +1,9 @@
-
+const Player = require('../models/Player');
+const Team = require('../models/Team')
 
 
 async function getAll(query) {
-    let teams = await Cube.find({}).lean();
+    let teams = await Team.find({}).lean();
 
 
     if (query.search) {

@@ -4,12 +4,12 @@ const teamService = require('../services/teamServices');
 const router = Router();
 
 router.get('/', (req, res) => {
-  //  teamService.getAll(req.query)
-        //.then(teams => {
+    teamService.getAll(req.query)
+        .then(teams => {
 
-            res.render('home', { title: 'Browse', /* teams */ });
-        //})
-        //.catch(() => res.status(500).end());
+            res.render('home', { title: 'Browse', teams });
+        })
+        .catch(() => res.status(500).end());
 });
 
 
