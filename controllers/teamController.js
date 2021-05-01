@@ -12,5 +12,10 @@ router.get('/', (req, res) => {
         .catch(() => res.status(500).end());
 });
 
+//create
+router.get('/create', (req, res) => {
+    res.render('create', { title: 'Create-Page' });
+});
+
 
 module.exports = router;
