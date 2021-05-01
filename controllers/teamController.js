@@ -1,5 +1,7 @@
 const { Router, response } = require('express');
 
+const isAuthenticated = require('../middlewares/isAuthenticated');
+
 const teamService = require('../services/teamServices');
 const router = Router();
 
@@ -13,8 +15,14 @@ router.get('/', (req, res) => {
 });
 
 //create
-router.get('/create', (req, res) => {
+router.get('/create', isAuthenticated, (req, res) => {
     res.render('create', { title: 'Create-Page' });
+});
+
+router.post('/create', isAuthenticated, (req, res, next) => {
+    teamService.create(req.body, req.user._id)
+        .then(() => res.redirect('/teams'))
+        .catch(next);
 });
 
 

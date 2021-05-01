@@ -19,12 +19,17 @@ async function getAll(query) {
     }
 
     return teams;
-}
+};
 
 
+function create(data, userId) {
+    let team = new Team({ ...data, creator: userId });
 
+    return team.save();
+};
 
 
 module.exports = {
     getAll,
+    create
 }
