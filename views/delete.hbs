@@ -1,0 +1,14 @@
+<main>
+    <h1>Delete Team</h1>
+    <div class="form">
+        <form action="/teams/{{_id}}/delete" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="{{name}}" disabled="true" />
+            <label for="name">Description</label>
+            <textarea id="name" name="description" disabled="true" />{{description}}</textarea>
+            <label for="image">ImageUrl</label>
+            <input type="text" id="image" name="imageUrl" value="{{imageUrl}}" disabled="true" />
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+</main>

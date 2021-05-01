@@ -44,10 +44,15 @@ function updateOne(teamId, teamData) {
     return Team.updateOne({ _id: teamId }, teamData);
 };
 
+function deleteOne(teamId) {
+    return Team.deleteOne({ _id: teamId });
+};
+
 module.exports = {
     getAll,
     create,
     getOneWithPlayers,
     getOne,
     updateOne,
+    deleteOne
 }

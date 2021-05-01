@@ -50,5 +50,19 @@ router.post('/:teamId/edit', isAuthenticated, (req, res) => {
         });
 });
 
+//delete
+router.get('/:teamId/delete', isAuthenticated, (req, res) => {
+    teamService.getOne(req.params.teamId)
+        .then(team => {
+            res.render('delete', team);
+        })
+        .catch(err => console.log(err));
+});
+
+router.post('/:teamId/delete', isAuthenticated, (req, res) => {
+    teamService.deleteOne(req.params.teamId)
+        .then(response => res.redirect('/teams'))
+        .catch(err => console.log(err));
+});
 
 module.exports = router;
