@@ -74,4 +74,10 @@ router.get('/:teamId/attach', isAuthenticated, async (req, res) => {
     res.render('attachPlayer', { team, players });
 });
 
+router.post('/:teamId/attach', isAuthenticated, (req, res) => {
+    teamService.attachPlayer(req.params.teamId, req.body.player)
+        .then(() => res.redirect(`/teams/details/${req.params.teamId}`))
+});
+
+
 module.exports = router;

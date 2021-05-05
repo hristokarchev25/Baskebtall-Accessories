@@ -48,11 +48,20 @@ function deleteOne(teamId) {
     return Team.deleteOne({ _id: teamId });
 };
 
+async function attachPlayer(teamId, playerId) {
+    let team = await Team.findById(teamId);
+    let player = await Player.findById(playerId);
+
+    team.players.push(player);
+    return team.save();
+};
+
 module.exports = {
     getAll,
     create,
     getOneWithPlayers,
     getOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    attachPlayer,
 }

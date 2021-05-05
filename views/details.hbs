@@ -10,4 +10,12 @@
     <a class="btn" href="/teams/{{team._id}}/delete">Delete</a>
     {{/if}}
   </div>
+   <h2>Players on the team</h2>
+  <div class="accessories">
+    {{#each team.players}}
+    {{>player}}
+    {{else}}
+    <h3 class="italic">This team has no players yet...</h3>
+    {{/each}}
+  </div>
 </main>
