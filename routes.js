@@ -1,6 +1,5 @@
 const { Router } = require('express');
 
-
 const teamController = require('./controllers/teamController');
 const playerController = require('./controllers/playerController');
 const homeController = require('./controllers/homeController');
@@ -12,6 +11,9 @@ router.use('/', homeController);
 router.use('/auth', authController);
 router.use('/teams', teamController);
 router.use('/players', playerController);
+router.use('*', (req, res) => {
+    res.render('404');
+})
 
 
 module.exports = router;
