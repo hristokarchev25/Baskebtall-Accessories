@@ -3,6 +3,7 @@ const { Router, response } = require('express');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 
 const teamService = require('../services/teamServices');
+const playerService = require('../services/playerService');
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -63,6 +64,14 @@ router.post('/:teamId/delete', isAuthenticated, (req, res) => {
     teamService.deleteOne(req.params.teamId)
         .then(response => res.redirect('/teams'))
         .catch(err => console.log(err));
+});
+
+//attach
+router.get('/:teamId/attach', isAuthenticated, async (req, res) => {
+    let team = await teamService.getOne(req.params.teamId);
+    let players = await playerService.getAllWithout(team.players);
+
+    res.render('attachPlayer', { team, players });
 });
 
 module.exports = router;
