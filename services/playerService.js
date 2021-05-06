@@ -1,5 +1,9 @@
 const Player = require('../models/Player');
 
+function getAll() {
+    return Player.find().lean();
+}
+
 function create(data) {
     let player = new Player(data);
 
@@ -13,4 +17,5 @@ function getAllWithout(ids) {
 module.exports = {
     getAllWithout,
     create,
+    getAll,
 }

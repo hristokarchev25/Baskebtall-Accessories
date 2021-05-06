@@ -75,7 +75,7 @@ router.get('/:teamId/attach', isAuthenticated, async (req, res) => {
 });
 
 router.post('/:teamId/attach', isAuthenticated, (req, res) => {
-    teamService.attachPlayer(req.params.teamId, req.body.player)
+    teamService.attachPlayer(req.params.teamId, req.body.accessory)
         .then(() => res.redirect(`/teams/details/${req.params.teamId}`))
 });
 

@@ -51,7 +51,6 @@ function deleteOne(teamId) {
 async function attachPlayer(teamId, playerId) {
     let team = await Team.findById(teamId);
     let player = await Player.findById(playerId);
-
     team.players.push(player);
     return team.save();
 };
